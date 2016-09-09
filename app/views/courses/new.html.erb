@@ -1,0 +1,35 @@
+<% #get detail course info %>
+<% details = getCourseDetails %>
+
+<br><br>
+
+<h3 style="margin-left:auto;margin-right:auto; width:65%;"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Course Search Results </h3>
+<div class ="well well-lg" style ="width:65%;margin-left:auto;margin-right:auto;">
+
+<%= details['name']  %>
+<%=  details['number'] %>
+<%=  details['section'] %>
+<%= "( #{details['Lecture type']} )" %>
+<br>
+Instructor:
+<%= instrInfo = "#{details['Instructor']} #{details['Email']}" %><br>
+Schedule:
+<%= time = "#{details['Start time']} - #{details['End time']} #{details['Days']}" %>
+<%= location = "#{details['Building']} #{details['Room']} #{details['Campus']}" %><br>
+Exam: 
+<%= examTime = "#{details['Exam Start']} - #{details['Exam End']} #{details['Exam Date']}" %>
+<%= examLocation = "#{details['Exam room']} #{details['ExamBuilding']} #{details['ExamCampus']}" %>
+    
+<% #form.. add this course to Mycourse List %>    
+<%= simple_form_for ([current_user, current_user.courses.build]) do |f| %>
+  <%= f.hidden_field :c_name, :value => details['name'] %>
+  <%= f.hidden_field :c_number, :value => details['number'] %>
+  <%= f.hidden_field :c_section, :value => details['section'] %>
+  <%= f.hidden_field :c_time, :value => time %>
+  <%= f.hidden_field :c_location, :value => location %>
+  <%= f.hidden_field :c_examTime, :value => examTime %>
+  <%= f.hidden_field :c_examLocation, :value => examLocation %>
+	<%= f.button :submit, "Add this course in my course list!" , id: "coursesearchdetails" %>
+<% end %>
+
+</div>

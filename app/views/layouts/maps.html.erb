@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Maps</title>
+  <%= stylesheet_link_tag    'maps', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand brand_cus" href="/maps">
+      Maps
+      </a>
+
+    <br>
+  <nav>
+  <ul class="pagination pagination-lg">
+    <li><a href="/maps/burnaby">Burnaby Campus</a></li>
+    <li><a href="/maps/surrey">Surrey Campus</a></li>
+    <li><a href="/maps/vancouver">Vancouver Campus</a></li>
+  </ul>
+</nav>
+    
+    </div>
+  </div>
+</nav>
+	
+  <h2>Select a campus to view map</h2>
+<%= yield %>
+
+<div id="footer">
+  <h3 style="margin-left:5px;"><span class="glyphicon glyphicon-search"></span> Search</h3>
+<input type="text" disabled="disabled" class="form-control" style="width:92%;margin-left:15px; float:left;" placeholder="Enter Location">
+<button type="submit" disabled="disabled"  style="overflow:hidden; margin-left:5px; margin-right: 5px;" class="btn btn-primary">Go</button>
+<br>
+<br><br><br>
+
+<hr>
+<a href="/welcome"><button type="button" class="btn btn-lg btn-primary">Home</button></a>
+
+</div>
+</body>
+</html>

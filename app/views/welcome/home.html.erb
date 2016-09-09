@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+
+	<%= stylesheet_link_tag'home', :media=>'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
+</head>
+
+<body>
+	<div class="Welcomebox animated fadeIn">
+		<img src="/assets/user.png" class ="user_welcome">
+		<h1 id="Welcome">Welcome, <%= current_user.first_name%></h1>
+	</div>
+
+	<div class="btn-group">
+		<button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		Account <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<!-- <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profile</a></li> -->
+			<li style="opacity:0.5;pointer-events:none;cursor:default;"><%= link_to "Profile", current_user %></li>
+			<% if current_user %>
+				<% if current_user.email == "admin@email.com" %>
+					<li><%= link_to " Admin Panel",'admin'%></li>
+				<% end %>
+		        
+			<% end %>
+			<li role="separator" class="divider"></li>
+			<li><%= link_to "Logout", logout_path, method: "delete" %></li>
+		</ul>
+	</div>
+
+		
+
+
+<br>
+
+		<div id="Modules" >
+		<a href='/messages'>
+			<img src="/assets/shoutouts.png" class = "animated bounceIn">
+		</a>
+		<a href='/library'>
+			<img src="/assets/library.png" class = "animated bounceIn">
+		</a>
+		<a href='/maps'>
+			<img src="/assets/maps.png" class = "animated bounceIn">
+		</a>
+		<a href='/transit'>
+			<img src="/assets/transit.png" class = "animated bounceIn">
+		</a>
+			
+		<a href='/courses'>
+			<img src="/assets/courses.png" class = "animated bounceIn">
+		</a>
+
+		<a href='/calendar/index'>	
+			<img src="/assets/calendar.png" class = "animated bounceIn">
+		</a>
+			<img src="/assets/about.png" style="cursor:pointer" class = "animated bounceIn" data-toggle="modal" data-target="#aboutmodal">
+	</div>
+
+<div class="modal fade" id="aboutmodal" tabindex="-1" role="dialog" aria-labelledby="myaboutmodal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> SFU Companion Iteration Changes</h4>
+      </div>
+      <div class="modal-body">
+      	<br><br>
+        <div class="panel panel-info">
+        	<div class="panel-heading"><span class="glyphicon glyphicon-record" aria-hidden="true"></span> Iteration 1</div>
+  			<div class="panel-body">
+   			 <p>Features added: Account login, Account signup, Differential access rights (admin vs user) </p>
+   			 <p>Functional Modules added: Shoutouts</p>
+			</div>
+        </div>
+        <div class="panel panel-info">
+        	<div class="panel-heading"><span class="glyphicon glyphicon-record" aria-hidden="true"></span> Iteration 2</div>
+  			<div class="panel-body">
+   			 <p>Changes since Iteration 1: UI updates across all webpages, Guest module change </p>
+   			 <p> Features added: Admin panel account edit/delete functional, About button to view app changelogs, API's integrated into web app</p>
+   			 <p> Functional Modules added: Library, Maps</p>
+   			 <p>Note:Maps to have updated functionality at a later date</p>
+			</div>
+        </div>
+        <div class="panel panel-info">
+        	<div class="panel-heading"><span class="glyphicon glyphicon-record" aria-hidden="true"></span> Iteration 3</div>
+  			<div class="panel-body">
+   			 <p>Changes since Iteration 1: UI updates on shoutouts, transit and login page.</p>
+   			 <p> Functional Modules and features added: Courses, Calendar, Transit. User authentication required for shoutouts and calendar</p>
+   			 <p>Partially comeplte module: Transit and Maps</p>
+   			 <p>API's used: Google maps, SFU library, SFU Courses, Google Calendar</p>
+			</div>
+        </div>
+        <br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<div id="footer" class="animated fadeInUp">
+	<div class="alert alert-info" role="alert">Logged in as <%= current_user.email %></div>
+	</div>
+</body>
+
+</html>

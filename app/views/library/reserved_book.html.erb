@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <%= stylesheet_link_tag'library', :media=>'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
+  <title>Search results</title>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" href="/library" style="margin-top:4px;">
+        <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+      </a>
+      <%= link_to "Home", root_path, :class=>"btn btn-default navbar-btn" %>
+      
+    </div>
+  </div>
+</nav>
+
+
+<% results = getReservedBookResult %>
+          <div style="width:60%;margin-left:auto;margin-right:auto;">  <h3><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Search results </h3></div>
+<% #In case there's no result %>
+<% if results.empty? %>
+  <h3 style="width:60%;margin-left:auto;margin-right:auto;color:grey;">Please Enter valid Course name and Course number. Redirecting ...</h3>
+  
+  <% #redirect to library page %>
+  <script type="text/javascript">
+    window.setTimeout(function(){window.location.href="/library"},3000)
+  </script>
+  
+<% else %>
+
+  <% #results contains all the information of all of the courses specified %>
+  <% #each result contains course information for one course %>
+  <% results.each do |result| %>
+  <div class ="well" style ="width:60%; margin-left:auto;margin-right:auto;">
+    <table style="width:100%;margin-top:0px;padding-top:0px;">
+      <% result.each do |key, value| %>
+      <tr>
+        <% if key == "Item_url" %>
+            <td>
+            See Details & Availablility
+            <%= link_to "click here!", value %>
+            </td>
+        
+        <% elsif key == "Cover_url" %>
+          <td>
+            <%= image_tag(value) %> 
+          </td>
+          
+        <% elsif key == "Instructors" %>
+          <td>
+            <%= key +": " %>
+            <%= value[0] %>
+          </td>
+        <% else %>
+          <td>    
+            <%= key +": " %>
+            <%= value %>
+          </td>
+        <% end %> 
+      </tr>
+      <br>
+      <% end %>
+    </table>
+  </div>
+ <% end %>
+<% end %>
+
+
+
+</body>
+</html>

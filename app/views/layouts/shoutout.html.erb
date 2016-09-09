@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shoutouts</title>
+  <%= stylesheet_link_tag    'custom', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/messages">Shoutouts</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active" style="position:absolute;top:15px;"><%= link_to "Create Message", new_message_path%> <span class="sr-only">(current)</span></a></li>
+        
+      </ul>
+ 
+      <ul class="nav navbar-nav navbar-right">
+       
+          
+  
+            <a href="/welcome"><button type="button" class="btn btn-default navbar-btn">Home</button></a>
+ 
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+			
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+
+	
+<%= yield %>
+
+
+
+</body>
+</html>

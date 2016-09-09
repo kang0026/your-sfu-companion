@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <%= stylesheet_link_tag'library', :media=>'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
+  <title>Library</title>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" href="/library">
+        Library
+      </a>
+
+      <%= link_to "Home", root_path, :class=>"btn btn-default navbar-btn" %>
+      
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div id="sidebar">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+
+
+  <div class="panel panel-primary" style="margin-left:7px; margin-right:7px; margin-top: 18px;">
+  <div class="panel-heading">
+    <h3 class="panel-title"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Library Hours</h3>
+  </div>
+  <div class="panel-body">
+    <table id="sidesectable">
+  <tr>
+   <th>Library</th>
+   <th>Open</th>
+   <th>Close</th>
+  </tr>
+  <% for i in 0..2 %>
+    <tr>
+      <td><%= getLibOpenArray("location")[i] %></td>
+      <td><%= getLibOpenArray("open_time")[i] %></td>
+      <td><%= getLibOpenArray("close_time")[i] %></td>
+    </tr>
+<% end %>
+</table>
+</div>
+</div>
+<br>
+</div>
+
+
+<% library_PCHash =
+    {"Bennett Library - 2F" => "ben-2-2105-pc" ,
+     "Bennett Library - 3F (WEST)" => "ben-3-w-pc" ,
+     "Bennett Library - 3F (EAST)" => "ben-3-e-pc" ,
+     "Bennett Library - 3F (Macs)" => "ben-3-macs" ,
+     "Bennett Library - 4F" => "ben-4-4009-pc" ,
+     "Bennett Library - 5F" => "ben-5-pc" ,
+     "Bennett Library - 6F" => "ben-6-pc" ,
+     "Bennett Library - 7F" => "ben-7-pcs" ,
+     "Bennett Library - 7F (Macs)" => "ben-7-macs" ,
+     "Belzberg Library (VAN)" => "bel-pc",
+     "Fraser Library (SUR)" => "surrey-lib"} %>
+
+<div id="mainsec">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()"> ☰ Hours</span><br><br>
+<h3><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> PC Availablility</h3>
+
+<div class ="well well-lg">
+<table style="width:100%">
+  <tr>
+    <th>Library</th>
+    <th>Available PC</th>
+    <th>Total PC</th>
+  </tr>
+
+ <% library_PCHash.each do |key,value| %>
+  <tr>
+    <td><%= key %></td>
+    <td><%= getFreePCHash("locations",value)[0] %></td>
+    <td><%= getFreePCHash("totals",value)[0] %></td>
+  </tr>
+
+ <% end %>
+
+</table>
+</div><br>
+
+<h3><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Reserved Book Search </h3>
+<div class ="well well-lg" style ="width:400px;">
+
+<%= form_tag('/reserved_book', :method => 'post') do %>
+
+    <% #search by course name and number %>
+    <label for="course_name">Course Name </label>
+    <%=text_field_tag 'course_name', 'CMPT', id: "coursename" %>
+    <br><br>
+    <label for="course_number">Course Number</label>
+    <%=text_field_tag 'course_number', '276', id: "coursenumber"%>
+    
+    <%= submit_tag 'Search', id: "searchbtn" %>
+<% end %>
+</div>
+
+
+<div class="alert alert-info animated fadeInUp" id="footer"role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong><a href="/calendar">Click here</a> </strong> to add an event/reminder to your Google calendar
+</div>
+
+</div>
+
+
+
+
+
+<script>
+function openNav() {
+    document.getElementById("sidebar").style.width = "290px";
+    document.getElementById("mainsec").style.marginLeft = "290px";
+}
+
+function closeNav() {
+    document.getElementById("sidebar").style.width = "0";
+    document.getElementById("mainsec").style.marginLeft= "0";
+}
+</script>
+</body>
+</html>

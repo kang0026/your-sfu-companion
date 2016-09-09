@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transit</title>
+  <%= stylesheet_link_tag    'transit', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand brand_cus" href="/maps">
+      Transit
+      </a>
+
+    <br>
+  <nav>
+  <ul class="pagination pagination-lg">
+  	<li><a href='/'><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Home</a></li>
+    <li><a href='/transit'>Live Cams</a></li>
+    <li><a style="opacity:0.5;pointer-events:none;cursor:default;">Bus Schedules</a></li>
+    
+  </ul>
+</nav>
+    
+    </div>
+  </div>
+</nav>
+
+	
+<%= yield %>
+
+
+</body>
+</html>

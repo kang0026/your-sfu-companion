@@ -1,0 +1,191 @@
+
+#gradient {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+ 	
+}
+
+#SFUCompanion{
+	font-weight: normal;
+	font-size: 60px;
+	text-align: center;
+	margin-top: 25px;
+	color: white;
+	
+
+}
+
+body{
+	background-color: #6a9afb;
+	background: url('/assets/unblur.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+img{
+	height: 310px;
+	width: 270px;
+	border: 0px;
+	margin: 0px;
+	}
+
+.fade{
+	opacity:1;
+	-moz-transition: opacity .25s ease-in-out;
+	-webkit-transition: opacity .25s ease-in-out;
+	transition: opacity .25s ease-in-out;
+}
+.fade:hover{
+	opacity: 0.5;
+}
+
+h4{
+	color:white;
+	font-weight: normal;
+	font-size: 35px;
+	text-align: center;
+}
+
+
+#Login_btn{
+background-color: #5189fb;
+color:white;
+padding:20px 105px;
+text-align: center;
+text-decoration: none;
+font-size: 30px;
+display: inline-block;
+border-radius: 6px;
+margin: 2px 2px 2px 2px;
+
+}
+
+
+#Login_btn:hover {
+	background-color:#3377ff;
+		transition: 0.5s;
+}
+
+#Signup_btn:hover{
+	background-color:#3377ff; 
+
+	transition: 0.5s;
+}
+#Signup_btn{
+	background-color: #5189fb;
+color:white;
+padding:20px 98px;
+text-align: center;
+text-decoration: none;
+font-size: 30px;
+border-radius: 6px;
+display: inline-block;
+margin: 2px 2px 2px 2px;
+
+}
+
+
+#Logout_btn{
+background-color: #5189fb;
+color:white;
+padding:20px 95px;
+text-align: center;
+text-decoration: none;
+font-size: 30px;
+border-radius: 6px;
+display: inline-block;
+margin: 2px 2px 2px 2px;
+}
+
+
+.guest{
+	text-align: center;
+	width:auto;
+	position: static;
+	margin-left: 650px;
+	margin-top: 250px;
+	border-left: 1px solid white;
+
+
+}
+
+
+
+
+.Login{
+border: 1px solid white;
+border-radius: 6px;
+padding: 40px 40px;
+position: absolute;
+top: 400px;
+left: 10%;
+right: auto;
+
+ background: rgba(230,240,255,0.4);
+  border: 2px dashed transparent;
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.15);
+
+}
+
+
+@media screen and (max-width: 1500px) {
+
+
+
+.Login{
+border: 1px solid white;
+border-radius: 6px;
+padding: 30px 30px;
+position: absolute;
+top: 300px;
+left: 5%;
+right: auto;
+
+}
+
+#Signup_btn{
+	background-color: #5189fb;
+color:white;
+padding:10px 88px;
+text-align: center;
+text-decoration: none;
+font-size: 30px;
+border-radius: 6px;
+display: inline-block;
+margin: 2px 2px 2px 2px;
+
+}
+
+#Login_btn{
+background-color: #5189fb;
+color:white;
+padding:10px 95px;
+text-align: center;
+text-decoration: none;
+font-size: 30px;
+display: inline-block;
+border-radius: 6px;
+margin: 2px 2px 2px 2px;
+
+}
+
+h4{
+	color:white;
+	font-weight: normal;
+	font-size: 30px;
+	text-align: center;
+}
+
+.guest{
+	
+	width:auto;
+	position: static;
+	margin-left: 450px;
+	margin-top: 150px;
+	border-left: 1px solid white;
+}
+
+}

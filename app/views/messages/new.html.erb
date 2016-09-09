@@ -1,0 +1,12 @@
+
+<div class="col-md-8 col-md-offset-2">
+	<div class="new_message">
+	<h1 class="new-msg-header">Create Message</h1>
+<%= simple_form_for @message do |f| %>
+	<%= f.input :title, label: "Message Title", class: "title" %>
+	<%= f.input :description, class: "input" %>
+	<%= f.button :submit, class: "submit_btn" %>
+<% end %>
+</div>
+
+</div>

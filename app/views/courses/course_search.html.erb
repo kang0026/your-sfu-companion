@@ -1,0 +1,42 @@
+<% #Diaplays search results with course title, number,  and section %> 
+
+<% results = getCourseSearchResult %>
+<% courseParams = courseSearch %>
+
+
+<br><br>
+
+<h3 style="margin-left:auto;margin-right:auto; width:65%;"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Course Search Results </h3>
+<div class ="well well-lg" style ="width:65%;margin-left:auto;margin-right:auto;">
+
+<% #redirect to courses page when result is empty. %>
+<% #result is empty when user put invalid input/ no input %>
+<% if results.empty? %>
+  <h4>Please Enter valid Entries. Redirecting...</h4>
+  <script type="text/javascript">
+    window.setTimeout(function(){window.location.href="/courses"},3000)
+  </script>
+<% end %>
+
+<% #display course title and section %>
+<table id="mycoursetable">
+  <% results.each do |result| %>
+    <tr>
+      <td>
+        <strong> <%= result['Title'] %> <%= result['Section'] %> </strong>
+    
+        <% #pass course info to /new page to display details %>
+        <%= form_tag('/courses/new', :method => 'post') do %>
+          <%=hidden_field_tag 'course_year', courseParams[0]  %>
+          <%=hidden_field_tag 'course_term', courseParams[1] %>
+          <%=hidden_field_tag 'course_name', courseParams[2] %>
+          <%=hidden_field_tag 'course_number', courseParams[3] %>
+          <%=hidden_field_tag 'course_section', result['Section'] %>
+          <div><%= submit_tag 'Details', id: "coursesearchdetails" %></div>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+</div>

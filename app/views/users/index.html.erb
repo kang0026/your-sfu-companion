@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<title>SFU Companion</title>
+<%= stylesheet_link_tag('index', :media=>'all', 'data-turbolinks-track' => true)%>
+</head>
+
+<body>
+	<h1 id="SFUCompanion">SFU Companion</h1>
+	<hr id="gradient">
+	
+	<div class = "Login">
+		
+		<h4>Get started</h4>
+		<%= link_to "Login", 'login', id: "Login_btn" %><br>
+		<%= link_to "Signup", 'signup', id: "Signup_btn" %>
+	
+	</div>
+
+	<div class= "guest">
+		<h4>Guest Modules </h4> <br>
+		<a href='/transit'>
+		<img src="/assets/transit.png" class = "fade">
+		</a>
+		<a href='/library'>
+		<img src="/assets/library.png" class = "fade">
+		</a>
+		<a href='/maps'>
+		<img src="/assets/maps.png" class = "fade">
+		</a>
+	</div>
+
+
+</body>
+
+
+</html>

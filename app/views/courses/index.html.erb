@@ -1,0 +1,73 @@
+
+
+<!--Side search container-->
+<div class="container">
+	<div class="row">
+  			<div class="col-md-3">
+              	
+				<div class="well"> 
+					<h3>Course Search</h3><br>
+				<% #course search form %>
+				<% #post params to /course_search %>
+				<%= form_tag('/course_search', :method => 'post') do %>
+				
+				    <% #search by year, term, course name and number %>
+				    <label for="course_year">Course Year</label>
+				    <%=text_field_tag 'course_year', '2016', id: "courseyear" %>
+				    <br>
+				    <label for="course_term">Course Term</label>
+				    <%=text_field_tag 'course_term', 'Fall', id: "courseterm" %>
+				    <br>
+				    <label for="course_name">Course Name</label>
+				    <%=text_field_tag 'course_name', 'CMPT', id: "coursename" %>
+				    <br>
+				    <label for="course_number">Course Number</label>
+				    <%=text_field_tag 'course_number', '', id: "coursenumber"%>
+				    
+				    <div><%= submit_tag 'Search', id: "coursesearch" %></div>
+				<% end %>	
+				<br>				
+     
+  				</div>
+
+      		</div>  
+      		<div class="col-md-9">
+              	<h2 id="mycourses">My Courses</h2>
+              	<% #course can be added into my course list %>
+
+				<% current_user.courses.each do |course| %>
+				<table id="mycoursetable" class = "animated fadeInUp">
+				  <tr>
+				    <td id="mycoursestart">
+					    <%= course.c_name %>
+					    <%= course.c_number %>
+					    <%= course.c_section %>
+					  </td>
+					</tr>
+					<tr>
+					  <td>
+					    Schedule:
+					    <%= course.c_time %>
+					    <%= course.c_location %>
+					    <br>
+					    Exam:
+					    <%= course.c_examTime %>
+					    <%= course.c_examLocation %>
+					    <%= button_to "Delete", [course.user, course], method: :delete, data: { confirm: "Are you sure?" } ,id: "mycoursedelete" %>
+						</td>
+					</tr>
+				</table>
+				<% end %>
+
+              </div>
+          </div>
+      </div>
+
+
+
+
+<div class="alert alert-info animated fadeInUp" id="footer" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong><a href="/calendar">Click here</a> </strong> to add an event/reminder to your Google calendar
+</div>
+

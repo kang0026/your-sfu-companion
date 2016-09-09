@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit User</title>
+  <%= stylesheet_link_tag('new', :media=>'all')%>
+</head>
+
+
+
+<body>
+
+ <div id="form">
+    <h1>Update your profile</h1>
+    <%= form_for(@user) do |f| %>
+      <%= f.text_field :first_name, :placeholder => "First name" ,id: "first_name" %><br>
+      <%= f.text_field :last_name, :placeholder => "Last name", id: "last_name" %><br>
+      <%= f.email_field :email, :placeholder => "Email" ,id: "email_field" %><br>
+      <%= f.password_field :password, :placeholder => "Password" ,id: "Password_field" %><br>
+
+      <%= f.submit "Save changes",class: "btn-submit" ,id: "submit_button" %>
+    <% end %>
+
+</div>
