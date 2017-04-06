@@ -1,7 +1,7 @@
 #SFU Companion
 
 ###Description:
-Providing SFU’s many resources organized by modules into one location with the added features of group chats, event organizers, polls and sharing access to your social media. Very similar to the SFU phone app, but on a web platform instead. This is more advantageous as SFU’s many course resources are all web-based modules not optimized for phone use. Therefore, by having it all localized into one webpage with some extra features listed below, it will maximize functionality and productivity as many university students do homework on a computer rather than a phone.
+Modularizing resources in SFU into one location with added features of group chat, event organizer, polling and sharing access to social media. This web app is similar to the SFU app in mobile platform. However, the resources in SFU are web-based modules such that this wep app localizd all resources into one web app with extra features.
 
 ###Modules and Features:
 1. **Login Module:** When you first visit the webpage, there’ll be a welcome page giving a short description or slogan of the web app. There will be a log in or sign up button shown with the welcome page, but you can also choose to visit the website as a guest. Some features do not require a user account, such as viewing the map, searching through courses or library, etc while others do, such as adding friends, sharing to social media, etc.
